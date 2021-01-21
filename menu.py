@@ -24,5 +24,7 @@ def deploy():
 	for event in pygame.event.get():
 	        if event.type == pygame.MOUSEBUTTONUP:
         	    print(event.pos)
+                mousex, mousey = event.pos
+                print(mousex, mousey)
 if __name__ == '__main__':
     deploy()
