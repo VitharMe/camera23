@@ -16,13 +16,13 @@ def deploy():
     pygame.mouse.set_visible(False)
     screen = pygame.display.set_mode((320,240),0,0)
     screen.fill(BLACK)
-
+    event = pygame.event.poll()
+    
     while True:
 		img = pygame.image.load(image_path)
 		screen.blit(img, (0,0))
 		pygame.display.update()
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONUP:
+        if event.type == pygame.MOUSEBUTTONUP:
                 print(event.pos)
 if __name__ == '__main__':
     deploy()
