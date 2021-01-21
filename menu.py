@@ -5,12 +5,10 @@ import sys
 from time import sleep
 import RPi.GPIO as GPIO
 from pygame.locals import *
-#import gaona
-#import ups
 
 current_path = os.path.dirname(__file__) # Where your .py file is located
 image_path = os.path.join(current_path, 'bell.png') # The image folder path
-#temp = ups.red()
+
 def deploy():
     os.putenv('SDL_FBDEV', '/dev/fb1')
 
@@ -19,7 +17,7 @@ def deploy():
     for k in button_map.keys():
         GPIO.setup(k, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     def names():
-        DISPLAY.blit(font.render('Gaona\'s Bell', True, BLACK), (25, 15))
+        DISPLAY.blit(font.render('Camera', True, BLACK), (25, 15))
         DISPLAY.blit(font.render('Second', True, BLACK), (25, 100))
         DISPLAY.blit(font.render('Exit', True, BLACK), (25, 185))
     def draws():
@@ -63,32 +61,8 @@ def deploy():
     draws()
     selection()
     names()
-    #temperature()
     while True:
-        for (k,v) in button_map.items():
-            if GPIO.input(k) == False:
-                if GPIO.input(23) == GPIO.LOW:
-                    draws()
-                    motion(v)
-		    foo()
-                    names()
-                    if foo.counter >= 3:
-			select = Rect(20, 10, 200, 50)
-			foo.counter = 0
-                        draws()
-			selection()
-			names()
-                if GPIO.input(24) == GPIO.LOW:
-		    if foo.counter == 0:
-			img = pygame.image.load(image_path)
-			DISPLAY.blit(img, (0,0))
-			pygame.display.update()
-			#gaona.graph()
-		    if foo.counter == 1:
-                        print("2")
-		    if foo.counter == 2:
-                        quit()
-        pygame.display.update()
-        sleep(0.2)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            print("tocado")
 if __name__ == '__main__':
     deploy()
