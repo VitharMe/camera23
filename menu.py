@@ -5,12 +5,12 @@ import sys
 from time import sleep
 import RPi.GPIO as GPIO
 from pygame.locals import *
-import gaona
-import ups
+#import gaona
+#import ups
 
 current_path = os.path.dirname(__file__) # Where your .py file is located
 image_path = os.path.join(current_path, 'bell.png') # The image folder path
-temp = ups.red()
+#temp = ups.red()
 def deploy():
     os.putenv('SDL_FBDEV', '/dev/fb1')
 
@@ -83,7 +83,7 @@ def deploy():
 			img = pygame.image.load(image_path)
 			DISPLAY.blit(img, (0,0))
 			pygame.display.update()
-			gaona.graph()
+			#gaona.graph()
 		    if foo.counter == 1:
                         print("2")
 		    if foo.counter == 2:
