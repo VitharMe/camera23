@@ -8,6 +8,8 @@ from pygame.locals import *
 current_path = os.path.dirname(__file__) # Where your .py file is located
 image_path = os.path.join(current_path, 'resources/menu.png') # The image folder path
 
+BLACK=(0,0,0)
+
 def deploy():
     os.putenv('SDL_FBDEV', '/dev/fb1')
     pygame.init()
