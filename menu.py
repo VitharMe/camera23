@@ -18,37 +18,36 @@ os.putenv('DISPLAY','')
 
 pygame.init()
 pitft = pigame.PiTft()
-pygame.mouse.set_visible(True)
-#screen = pygame.display.set_mode((320,240),0,0)
+pygame.mouse.set_visible(False)
 screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
 screen.fill(BLACK)
 
 img = pygame.image.load(image_path)
 screen.blit(img, (0,0))
 pygame.display.update()
-def deploy():
+try:
     while True:
         pitft.update()
 	for event in pygame.event.get():
 		if(event.type is MOUSEBUTTONDOWN):
 			x,y = pygame.mouse.get_pos()
-			print(x,y)
+			#print(x,y)
 		elif(event.type is MOUSEBUTTONUP):
 			x,y = pygame.mouse.get_pos()
-			print(x,y)
+			#print(x,y)
 			if y > 120:
 	                	if x < 160:
-	                        	print("17off")
+	                        	print("2")
 	                	else:
-	                        	print("4off")
+	                        	print("Camera")
 	                else:
 	                	if x < 160:
-	                        	pygame.quit() ; import sys
-		                        os.system("sudo poweroff") ; sys.exit(0)
+					print(">")
+					sys.exit()
 	                        else:
-	            	        	pygame.quit()
-	                	        import sys
-	                        	sys.exit(0)
+					print("3")
         sleep(0.1)
-if __name__ == '__main__':
-    deploy()
+except KeyboardInterrupt:
+    pass
+finally:
+    del(pitft)
