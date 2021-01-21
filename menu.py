@@ -4,6 +4,7 @@ import pygame,pigame
 import sys
 from time import sleep
 from pygame.locals import *
+import cam
 
 current_path = os.path.dirname(__file__) # Where your .py file is located
 image_path = os.path.join(current_path, 'resources/menu.png') # The image folder path
@@ -18,7 +19,7 @@ os.putenv('DISPLAY','')
 
 pygame.init()
 pitft = pigame.PiTft()
-pygame.mouse.set_visible(False)
+pygame.mouse.set_visible(True)
 screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
 screen.fill(BLACK)
 
@@ -40,6 +41,7 @@ try:
 	                        	print("2")
 	                	else:
 	                        	print("Camera")
+					cam.deploy()
 	                else:
 	                	if x < 160:
 					print(">")
