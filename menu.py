@@ -22,7 +22,7 @@ def deploy():
 		img = pygame.image.load(image_path)
 		screen.blit(img, (0,0))
 		pygame.display.update()
-        if event.type == pygame.MOUSEBUTTONUP:
+        if event.type == pygame.MOUSEBUTTONDOWN:
                 print(event.pos)
 if __name__ == '__main__':
     deploy()
