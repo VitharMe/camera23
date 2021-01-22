@@ -69,7 +69,7 @@ def deploy():
         pygame.display.update()
         time.sleep(1)
       img_cross = pygame.image.load('resources/cross.png')
-      screen.blit(img_cross, (0,0))
+      screen.blit(img_cross, (280,5))
       pygame.display.update()
 if __name__ == '__main__':
     deploy()
