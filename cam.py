@@ -60,7 +60,7 @@ def deploy():
         pygame.draw.rect(screen,(255,255,255), (0,0,320,240))
         pygame.display.update()
         now = datetime.datetime.now()
-        image_date = now.strftime("%Y-%m-%d_%H%M%S.jpg")
+        image_date = now.strftime("pics/%Y-%m-%d_%H%M%S.jpg")
         image_path = os.path.join(current_path, image_date)
         camera.capture(image_path)
         img = pygame.image.load(image_path)

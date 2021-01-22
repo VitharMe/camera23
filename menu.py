@@ -8,6 +8,7 @@ import cam
 
 current_path = os.path.dirname(__file__) # Where your .py file is located
 image_path = os.path.join(current_path, 'resources/menu.png') # The image folder path
+image_loading = os.path.join(current_path, 'resources/camera.jpg')
 
 BLACK=(0,0,0)
 
