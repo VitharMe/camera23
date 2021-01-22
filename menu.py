@@ -36,7 +36,7 @@ try:
 			#print(x,y)
 		elif(event.type is MOUSEBUTTONUP):
 			x,y = pygame.mouse.get_pos()
-			#print(x,y)
+			print(x,y)
 			if y > 120:
 	                	if x < 160:
 	                        	print("2")

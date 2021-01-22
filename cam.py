@@ -3,8 +3,8 @@ import atexit
 import io
 import os
 import picamera
-import pygame
-import time
+import pygame,pigame
+from time import sleep
 import yuv2rgb
 import RPi.GPIO as GPIO
 from pygame.locals import *
@@ -57,7 +57,7 @@ def deploy():
         if img:
             screen.blit(img,
               ((320 - img.get_width() ) / 2,
-               (240 - img.get_height()) / 2))        
+               (240 - img.get_height()) / 2))
         for event in pygame.event.get():
             if(event.type is MOUSEBUTTONDOWN):
                 x,y = pygame.mouse.get_pos()
@@ -77,7 +77,7 @@ def deploy():
                                     img = pygame.image.load(image_path)
                                     screen.blit(img, (0,0))
                                     pygame.display.update()
-                                    time.sleep(1)
+                                    sleep(1)
         img_cross = pygame.image.load('resources/cross.png')
         screen.blit(img_cross, (280,5))
         pygame.display.update()
