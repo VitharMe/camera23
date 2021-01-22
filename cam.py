@@ -84,8 +84,9 @@ def deploy():
             pygame.display.update()
             sleep(0.1)
     except KeyboardInterrupt:
-        pass
+    	pass
     finally:
-        del(pitft)                 
+    	del(pitft)
+
 if __name__ == '__main__':
     deploy()
