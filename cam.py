@@ -4,6 +4,7 @@ import io
 import os
 import picamera
 import pygame,pigame
+import menu
 from time import sleep
 import yuv2rgb
 import RPi.GPIO as GPIO
