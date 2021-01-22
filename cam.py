@@ -9,10 +9,10 @@ import yuv2rgb
 import RPi.GPIO as GPIO
 from pygame.locals import *
 
-current_path = os.path.dirname(__file__) # Where your .py file is located
+# Where your .py file is located
+current_path = os.path.dirname(__file__)
 
 GPIO.setmode(GPIO.BCM)
-
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -38,6 +38,7 @@ atexit.register(camera.close)
 camera.resolution = sizeData[sizeMode][1]
 camera.crop       = (0.0, 0.0, 1.0, 1.0)
 camera.rotation = 270
+
 def deploy():
     while(True):
       button_23 = GPIO.input(23)
@@ -67,6 +68,8 @@ def deploy():
         screen.blit(img, (0,0))
         pygame.display.update()
         time.sleep(1)
+      img_cross = pygame.image.load('resources/cross.png')
+      screen.blit(img_cross, (0,0))
       pygame.display.update()
 if __name__ == '__main__':
     deploy()
