@@ -9,38 +9,37 @@ import yuv2rgb
 import RPi.GPIO as GPIO
 from pygame.locals import *
 
-# Where your .py file is located
-current_path = os.path.dirname(__file__)
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-screenMode      =  3
-sizeMode        =  0
-
-sizeData = [[(1440, 1080), (320, 240), (0.2222, 0.2222, 0.5556, 0.5556)]]
-
-os.putenv('SDL_VIDEODRIVER', 'fbcon')
-os.putenv('SDL_FBDEV'      , '/dev/fb1')
-
-rgb = bytearray(320 * 240 * 3)
-yuv = bytearray(320 * 240 * 3 / 2)
-
-pygame.init()
-pitft = pigame.PiTft()
-pygame.mouse.set_visible(True)
-screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
-
-camera            = picamera.PiCamera()
-atexit.register(camera.close)
-camera.resolution = sizeData[sizeMode][1]
-camera.crop       = (0.0, 0.0, 1.0, 1.0)
-camera.rotation = 270
-
 def deploy():
+    # Where your .py file is located
+    current_path = os.path.dirname(__file__)
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+    screenMode      =  3
+    sizeMode        =  0
+
+    sizeData = [[(1440, 1080), (320, 240), (0.2222, 0.2222, 0.5556, 0.5556)]]
+
+    os.putenv('SDL_VIDEODRIVER', 'fbcon')
+    os.putenv('SDL_FBDEV'      , '/dev/fb1')
+
+    rgb = bytearray(320 * 240 * 3)
+    yuv = bytearray(320 * 240 * 3 / 2)
+
+    pygame.init()
+    pitft = pigame.PiTft()
+    pygame.mouse.set_visible(True)
+    screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+
+    camera            = picamera.PiCamera()
+    atexit.register(camera.close)
+    camera.resolution = sizeData[sizeMode][1]
+    camera.crop       = (0.0, 0.0, 1.0, 1.0)
+    camera.rotation = 270
     try:
         while(True):
             pitft.update()
