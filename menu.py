@@ -20,7 +20,7 @@ os.putenv('DISPLAY','')
 
 pygame.init()
 pitft = pigame.PiTft()
-pygame.mouse.set_visible(True)
+pygame.mouse.set_visible(False)
 screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
 screen.fill(BLACK)
 
