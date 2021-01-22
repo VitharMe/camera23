@@ -83,10 +83,10 @@ def deploy():
             screen.blit(img_cross, (280,5))
             pygame.display.update()
             sleep(0.1)
-
-if __name__ == '__main__':
-    deploy()
     except KeyboardInterrupt:
     	pass
     finally:
     	del(pitft)
+
+if __name__ == '__main__':
+    deploy()
