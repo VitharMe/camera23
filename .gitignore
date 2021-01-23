@@ -1,5 +1,7 @@
 # exclude everything
 pics/*
+cam.pyc
+menu.pyc
 
 # exception to the rule
 !pics/.gitkeep 

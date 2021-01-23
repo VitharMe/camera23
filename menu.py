@@ -30,31 +30,31 @@ def deploy():
     pygame.display.update()
     try:
         while True:
-            pitft.update()
-        for event in pygame.event.get():
-            if(event.type is MOUSEBUTTONDOWN):
-                x,y = pygame.mouse.get_pos()
-                #print(x,y)
-            elif(event.type is MOUSEBUTTONUP):
-                x,y = pygame.mouse.get_pos()
-                print(x,y)
-                if y > 120:
-                            if x < 160:
-                                    print("2")
-                            else:
-                                    print("Camera")
-                        cam.deploy()
-                        else:
-                            if x < 160:
-                        print(">")
-                        sys.exit()
-                                else:
-                        print("3")
-            sleep(0.1)
+		pitft.update()
+		for event in pygame.event.get():
+			if(event.type is MOUSEBUTTONDOWN):
+                		x,y = pygame.mouse.get_pos()
+		                #print(x,y)
+			elif(event.type is MOUSEBUTTONUP):
+	                	x,y = pygame.mouse.get_pos()
+		                print(x,y)
+		                if y > 120:
+					if x < 160:
+		                        	print("2")
+		                        else:
+		                        	print("Camera")
+		                        	cam.deploy()
+				else:
+		                	if x < 160:
+		                        	print(">")
+		                        	sys.exit()
+		                        else:
+		                        	print("3")
+		sleep(0.1)
     except KeyboardInterrupt:
         pass
     finally:
         del(pitft)
-    
+
 if __name__ == '__main__':
     deploy()

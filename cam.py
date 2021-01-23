@@ -5,6 +5,7 @@ import os
 import picamera
 import pygame,pigame
 import menu
+import subprocess, sys
 from time import sleep
 import yuv2rgb
 import RPi.GPIO as GPIO
@@ -67,6 +68,9 @@ def deploy():
                     if y > 200:
                                 if x < 50:
                                     print("Cross")
+				    subprocess.Popen(["python", "/home/pi/camera23/menu.py"])
+				    exit()
+				    #menu.deploy()
                                 else:
                                     print("Photo")
                                     pygame.draw.rect(screen,(255,255,255), (0,0,320,240))
